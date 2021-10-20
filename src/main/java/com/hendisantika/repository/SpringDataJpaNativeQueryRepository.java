@@ -37,7 +37,11 @@ public interface SpringDataJpaNativeQueryRepository extends JpaRepository<Event,
 
     }
 
-    @Query("SELECT new com.roytuts.spring.data.jpa.natve.query.dto.EventDto(e.id, e.title, e.url, e.clasz, " +
+    @Query("SELECT new com.hendisantika.dto(e.id, e.title, e.url, e.clasz, " +
             "UNIX_TIMESTAMP(start_date)*1000 as start, UNIX_TIMESTAMP(end_date)*1000 as end) FROM Event e")
     List<EventDto> getEventList();
+
+    @Query("SELECT new com.hendisantika.dto(e.id, e.title, e.url, e.clasz, UNIX_TIMESTAMP(start_date)*1000 as start, " +
+            "UNIX_TIMESTAMP(end_date)*1000 as end) FROM Event e WHERE e.id = ?1")
+    EventDto getEventById(int id);
 }
