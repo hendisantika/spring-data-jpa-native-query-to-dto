@@ -1,8 +1,12 @@
 package com.hendisantika.service;
 
+import com.hendisantika.dto.EventDto;
 import com.hendisantika.repository.SpringDataJpaNativeQueryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * Created by IntelliJ IDEA.
@@ -17,4 +21,22 @@ import org.springframework.stereotype.Service;
 public class SpringDataJpaNativeQueryService {
     @Autowired
     private SpringDataJpaNativeQueryRepository springDataJpaNativeQueryRepository;
+
+    public List<EventDto> getEventList() {
+        List<EventDto> eventList = springDataJpaNativeQueryRepository.findAll().stream().map(e -> {
+            EventDto dto = new EventDto();
+
+            dto.setId(e.getId());
+            dto.setTitle(e.getTitle());
+            dto.setUrl(e.getUrl());
+            dto.setClasz(e.getClasz());
+            dto.setStart(e.getStartDate().getTime());
+            dto.setEnd(e.getEndDate().getTime());
+
+            return dto;
+        }).collect(Collectors.toList());
+
+        return eventList;
+
+    }
 }
