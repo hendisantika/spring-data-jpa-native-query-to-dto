@@ -1,5 +1,6 @@
 package com.hendisantika.repository;
 
+import com.hendisantika.dto.EventDto;
 import com.hendisantika.model.Event;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -35,4 +36,8 @@ public interface SpringDataJpaNativeQueryRepository extends JpaRepository<Event,
         String getEnd();
 
     }
+
+    @Query("SELECT new com.roytuts.spring.data.jpa.natve.query.dto.EventDto(e.id, e.title, e.url, e.clasz, " +
+            "UNIX_TIMESTAMP(start_date)*1000 as start, UNIX_TIMESTAMP(end_date)*1000 as end) FROM Event e")
+    List<EventDto> getEventList();
 }
