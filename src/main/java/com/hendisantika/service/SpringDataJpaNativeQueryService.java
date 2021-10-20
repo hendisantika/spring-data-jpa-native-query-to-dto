@@ -51,4 +51,8 @@ public class SpringDataJpaNativeQueryService {
     public EventDto getEventById(int id) {
         return springDataJpaNativeQueryRepository.getEventById(id);
     }
+
+    public List<EventDto> getEventListByClaszAndEnd(String clasz, long end) {
+        return springDataJpaNativeQueryRepository.getEventsByClaszAndEnd(clasz, end);
+    }
 }
