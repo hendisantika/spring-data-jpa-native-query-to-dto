@@ -5,6 +5,7 @@ import com.hendisantika.repository.SpringDataJpaNativeQueryRepository;
 import com.hendisantika.service.SpringDataJpaNativeQueryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -40,8 +41,8 @@ public class EventController {
         return springDataJpaNativeQueryService.getEventList();
     }
 
-    @GetMapping("/3")
-    public EventDto getEventById(int id) {
+    @GetMapping("/3/{id}")
+    public EventDto getEventById(@PathVariable int id) {
         return springDataJpaNativeQueryService.getEventById(id);
     }
 }
