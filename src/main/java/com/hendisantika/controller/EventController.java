@@ -1,6 +1,7 @@
 package com.hendisantika.controller;
 
 import com.hendisantika.dto.EventDto;
+import com.hendisantika.repository.SpringDataJpaNativeQueryRepository;
 import com.hendisantika.service.SpringDataJpaNativeQueryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -28,4 +29,10 @@ public class EventController {
     public List<EventDto> getEventList() {
         return springDataJpaNativeQueryService.getEventList();
     }
+
+    @GetMapping("/1")
+    public List<SpringDataJpaNativeQueryRepository.Event> getEvents() {
+        return springDataJpaNativeQueryService.getEvents();
+    }
+
 }
