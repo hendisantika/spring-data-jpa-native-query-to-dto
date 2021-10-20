@@ -19,4 +19,20 @@ public interface SpringDataJpaNativeQueryRepository extends JpaRepository<Event,
     @Query(value = "SELECT e.id, e.title, e.url, e.clasz, UNIX_TIMESTAMP(start_date)*1000 AS start, UNIX_TIMESTAMP" +
             "(end_date)*1000 AS END FROM event e", nativeQuery = true)
     List<Event> getEvents();
+
+    interface Event {
+
+        String getId();
+
+        String getTitle();
+
+        String getUrl();
+
+        String getClasz();
+
+        String getStart();
+
+        String getEnd();
+
+    }
 }
