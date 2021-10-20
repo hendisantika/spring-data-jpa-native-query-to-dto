@@ -2,6 +2,9 @@ package com.hendisantika.repository;
 
 import com.hendisantika.model.Event;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+
+import java.util.List;
 
 /**
  * Created by IntelliJ IDEA.
@@ -13,4 +16,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
  * Time: 08.48
  */
 public interface SpringDataJpaNativeQueryRepository extends JpaRepository<Event, Integer> {
+    @Query(value = "SELECT e.id, e.title, e.url, e.clasz, UNIX_TIMESTAMP(start_date)*1000 AS start, UNIX_TIMESTAMP" +
+            "(end_date)*1000 AS END FROM event e", nativeQuery = true)
+    List<Event> getEvents();
 }
