@@ -35,4 +35,9 @@ public class EventController {
         return springDataJpaNativeQueryService.getEvents();
     }
 
+    @GetMapping("/2")
+    public List<EventDto> getEventList2() {
+        return springDataJpaNativeQueryService.getEventList();
+    }
+
 }
