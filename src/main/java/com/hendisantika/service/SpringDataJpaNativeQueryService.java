@@ -43,4 +43,8 @@ public class SpringDataJpaNativeQueryService {
     public List<SpringDataJpaNativeQueryRepository.Event> getEvents() {
         return springDataJpaNativeQueryRepository.getEvents();
     }
+
+    public List<EventDto> getEventList2() {
+        return springDataJpaNativeQueryRepository.getEventList();
+    }
 }
