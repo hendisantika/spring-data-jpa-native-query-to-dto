@@ -2,6 +2,7 @@ package com.hendisantika.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -26,6 +27,7 @@ import java.util.Date;
 @Table(name = "event")
 @Data
 @AllArgsConstructor
+@NoArgsConstructor
 public class Event {
 
     @Id

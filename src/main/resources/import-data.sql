@@ -1,33 +1,31 @@
-CREATE TABLE IF NOT EXISTS `event`
+CREATE TABLE IF NOT EXISTS event
 (
-    `id`
+    id
     INT
-    unsigned
-    COLLATE
-    utf8mb4_unicode_ci
     NOT
     NULL
     AUTO_INCREMENT,
-    `title`
+    title
     VARCHAR
 (
-    255
-) COLLATE utf8mb4_unicode_ci NOT NULL,
-    `url` VARCHAR
+    250
+) NOT NULL,
+    url VARCHAR
 (
     255
-) COLLATE utf8mb4_unicode_ci NOT NULL,
-    `clasz` VARCHAR
+) NOT NULL,
+    clasz VARCHAR
 (
     255
-) COLLATE utf8mb4_unicode_ci NOT NULL,
-    `start_date` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-    `end_date` TIMESTAMP NULL DEFAULT NULL,
+) NOT NULL,
+    start_date TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    end_date TIMESTAMP NULL DEFAULT NULL,
     PRIMARY KEY
 (
-    `id`
+    id
 )
     ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE =utf8mb4_unicode_ci;
+
 
 INSERT INTO `event` (`id`, `title`, `url`, `clasz`, `start_date`, `end_date`)
 VALUES (1, 'Example 1', 'http://www.example.com', 'event-success', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
