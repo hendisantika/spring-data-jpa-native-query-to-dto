@@ -1,4 +1,4 @@
-package com.hendisantika.springdatajpanativequerytodto.dto;
+package com.hendisantika.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
